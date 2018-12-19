@@ -1,0 +1,38 @@
+body {
+  background: #1d1b1b;
+  font-family: 'Lato';
+  color: white;
+}
+
+h1 {
+  font-weight: 300;
+  text-align:center;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  background: #264dfc;
+  font-size: 16px;
+  font-weight: 300;
+	color: white;
+  text-transform: uppercase;
+	letter-spacing: 2px;
+  padding: 25px 80px;
+  margin: 0 auto;
+	box-shadow: 0 6px #1d36a7;
+  border-radius: 20px;
+}
+
+.btn:hover {
+	box-shadow: 0 4px #1d36a7;
+	top: 2px;
+}
+
+.btn:active {
+	box-shadow: 0 0 #1d36a7;
+	top: 6px;
+}
