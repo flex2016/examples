@@ -1,0 +1,14 @@
+#price {
+  color: green;
+}
+form {
+  display:inline;
+}
+div.refresh {
+  margin-left:20px;
+  display:inline;
+  font-size:13px;
+}
+.refresh span {
+  margin-left:8px;
+}
