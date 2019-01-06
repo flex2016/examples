@@ -25,8 +25,8 @@
       else if(counterValue < 0){
         counter.style.color = '#F6511d';
       }
-    })
-  })
+    });
+  });
 
 
 })();

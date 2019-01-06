@@ -11,9 +11,9 @@
   //setup teh counter
   let counter = 0;
   //select buttons
-  const btn = document.querySelectorAll('.btn');
+  const buttons = document.querySelectorAll('.btn');
 
-  btn.forEach(function(btn){
+  buttons.forEach(function(btn){
     btn.addEventListener('click', function(event){
       //get event target
       let value = event.target;
