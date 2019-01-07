@@ -12,11 +12,10 @@
   let counter = 0;
   //select buttons
   const buttons = document.querySelectorAll('.btn');
+  const imgContainer = document.querySelector('.img-container');
 
   buttons.forEach(function(btn){
     btn.addEventListener('click', function(event){
-      //prevent default action
-      event.preventDefault();
       //get event target
       let value = event.target;
       if(value.classList.contains('btn-left')){
@@ -24,18 +23,14 @@
         if(counter < 0){
           counter = pictures.length - 1;
         }
-        document.querySelector(
-          ".img-container"
-          ).style.backgroundImage = `url('img/${pictures[counter]}.jpeg')`;
+        imgContainer.style.backgroundImage = `url('img/${pictures[counter]}.jpeg')`;
       }
       if(value.classList.contains('btn-right')){
         counter++;
         if(counter > pictures.length - 1){
           counter = 0;
         }
-        document.querySelector(
-          ".img-container"
-          ).style.backgroundImage = `url('img/${pictures[counter]}.jpeg')`;
+        imgContainer.style.backgroundImage = `url('img/${pictures[counter]}.jpeg')`;
       }
     });
   });
