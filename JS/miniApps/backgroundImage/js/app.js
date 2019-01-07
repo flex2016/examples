@@ -15,6 +15,8 @@
 
   buttons.forEach(function(btn){
     btn.addEventListener('click', function(event){
+      //prevent default action
+      event.preventDefault();
       //get event target
       let value = event.target;
       if(value.classList.contains('btn-left')){
