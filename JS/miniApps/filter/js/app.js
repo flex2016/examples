@@ -70,19 +70,19 @@
     imageList.push(img.src);
   });
 
-  //open modal
-  // images.forEach(function(img){
-  //   img.addEventListener('click', function(event){
-  //     //show modal
-  //     container.classList.add('show');
-  //     //get source
-  //     let src = event.target.src;
-  //     //get index of the image source
-  //     counter = imageList.indexOf(src);
-  //     //show modal with an image
-  //     item.style.backgroundImage = `url(${src})`;
-  //   });
-  // });
+  // open modal
+  images.forEach(function(img){
+    img.addEventListener('click', function(event){
+      //show modal
+      container.classList.add('show');
+      //get source
+      let src = event.target.src;
+      //get index of the image source
+      counter = imageList.indexOf(src);
+      //show modal with an image
+      item.style.backgroundImage = `url(${src})`;
+    });
+  });
 
   //close modal
   closeIcon.addEventListener('click', function(){
