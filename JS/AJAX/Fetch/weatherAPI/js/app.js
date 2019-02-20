@@ -28,7 +28,7 @@ class Display{
     this.cityCountry.textContent = country;
     this.cityTemp.textContent = temp;
     this.cityHumidity.textContent = humidity;
-    this.cityIcon.src = `http://openweathermap.org/img/w/${icon}.png`;
+    this.cityIcon.src = `https://openweathermap.org/img/w/${icon}.png`;
   }
 }
 
