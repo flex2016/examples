@@ -1,0 +1,289 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/boot.js"></script>
+  <script>
+    var earth = {
+      isRound: true,
+      numberFromSun: 3
+    }
+    describe("Earth", function(){
+      it("is round", function(){
+        expect(earth.isRound).toBe(true)
+      });
+      it("is the third planet from the sun", function(){
+        expect(earth.numberFromSun).toBe(3)
+      });
+    });
+
+
+    //////////////////////////////////////////////////////////
+    //////////BEFORE EACH
+    describe("#push", function(){
+      it("adds elements to an array", function(){
+          var arr = [1,3,5];
+          arr.push(7);
+          expect(arr).toEqual([1,3,5,7]);
+      });
+
+      it("returns the new length of the array", function(){
+          var arr = [1,3,5];
+          expect(arr.push(7)).toBe(4);
+      });
+
+      it("adds anything into the array", function(){
+          var arr = [1,3,5];
+          expect(arr.push({})).toBe(4);
+      });
+    });
+
+///
+    describe("Arrays", function(){
+      var arr;
+      beforeEach(function(){
+        arr = [1,3,5];
+      });
+      it("adds elements to an array", function(){
+        arr.push(7);
+        expect(arr).toEqual([1,3,5,7]);
+      });
+
+      it("returns the new length of the array", function(){
+        expect(arr.push(7)).toBe(4);
+      });
+
+      it("adds anything into the array", function(){
+        expect(arr.push({})).toBe(4);
+      });
+    });
+  //////////////////////////////////
+  ////////////AFTER EACH
+
+  describe("Counting", function(){
+    var count = 0;
+
+    beforeEach(function(){
+      count++;
+    });
+
+    afterEach(function(){
+      count = 0;
+    });
+
+    it("has a counter that increments", function(){
+      expect(count).toBe(1);
+    });
+
+    it("gets reset", function(){
+      expect(count).toBe(1);
+    });
+  });
+///////////////////////////////////////////
+////////////////////BEFORE ALL
+var arr = [];
+beforeAll(function(){
+  arr = [1,2,3];
+})
+describe("Counting", function(){
+  it("starts with an array", function(){
+    arr.push(4);
+    expect(1).toBe(1);
+  });
+  it("keeps mutating that array", function(){
+    console.log(arr); // [1,2,3,4]
+    arr.push(5);
+    expect(1).toBe(1);
+  });
+});
+describe("Again", function(){
+  it("keeps mutating the array...again", function(){
+    console.log(arr); // [1,2,3,4,5]
+    expect(1).toBe(1);
+  });
+});
+
+///////////////////////////////////////////////
+///////////////////NESTING DESCRIBE
+
+describe("Array", function(){
+  var arr;
+  beforeEach(function(){
+    arr = [1,3,5];
+  });
+
+  describe("#unshift", function(){
+    it("adds an element to the beginning of an array", function(){
+      arr.unshift(17);
+      expect(arr[0]).toBe(17);
+    });
+    it("returns the new length", function(){
+      expect(arr.unshift(1000)).toBe(4);
+    });
+  });
+  describe("#push", function(){
+    it("adds elements to the end of an array", function(){
+      arr.push(7);
+      expect(arr[arr.length-1]).toBe(7);
+    });
+    it("returns the new length", function(){
+      expect(arr.push(1000)).toBe(4);
+    });
+  });
+});
+
+//////////////////////////////
+
+describe("Earth", function(){
+  it('is round and has a method to check what number it is from the sun', function(){
+      expect(earth.isRound()).toBe(true);
+      expect(earth.howFarFromSun).toBe(jasmine.any(Function);
+      expect(earth.howFarFromSun()).toBe(3);
+  });
+});
+
+///////BETTER
+
+describe("Earth", function(){
+  it('is round', function(){
+      expect(earth.isRound()).toBe(true);
+  });
+  it('has a method to check what number it is from the sun', function(){
+      expect(earth.howFarFromSun).toBe(jasmine.any(Function);
+      expect(earth.howFarFromSun()).toBe(3);
+  });
+});
+
+////////////////////////////////////////
+////////////////SPY
+function add(a,b,c){
+  return a+b+c;
+}
+
+
+describe("add", function(){
+  var addSpy, result;
+  beforeEach(function(){
+    addSpy = spyOn(window, 'add');
+    result = addSpy();
+  })
+  it("is can have params tested", function(){
+    expect(addSpy).toHaveBeenCalled();
+  });
+});
+
+/// PARAMATERS
+
+describe("add", function(){
+  var addSpy, result;
+  beforeEach(function(){
+    addSpy = spyOn(window, 'add');
+    result = addSpy(1,2,3);
+  });
+  it("is can have params tested", function(){
+    expect(addSpy).toHaveBeenCalled();
+    expect(addSpy).toHaveBeenCalledWith(1,2,3);
+  });
+});
+
+
+describe("add", function(){
+  var addSpy, result;
+  beforeEach(function(){
+    addSpy = spyOn(window, 'add').and.callThrough();
+    result = addSpy(1,2,3);
+  })
+  it("can have a return value tested", function(){
+    expect(result).toEqual(6);
+  });
+});
+
+////FREQUENCY
+
+describe("add", function(){
+  var addSpy, result;
+  beforeEach(function(){
+    addSpy = spyOn(window, 'add').and.callThrough();
+    result = addSpy(1,2,3);
+  })
+  it("is can have params tested", function(){
+    expect(addSpy.calls.any()).toBe(true);
+    expect(addSpy.calls.count()).toBe(1);
+    expect(result).toEqual(6);
+  });
+});
+
+///////////////////////////////////////////
+/////////////////setTimeout
+describe("a simple setTimeout", function(){
+  var sample;
+  beforeEach(function() {
+    sample = jasmine.createSpy("sampleFunction");
+    jasmine.clock().install();
+  });
+
+  afterEach(function() {
+    jasmine.clock().uninstall();
+  });
+
+  it("is only invoked after 1000 milliseconds", function(){
+    setTimeout(function() {
+      sample();
+    }, 1000);
+    jasmine.clock().tick(999);
+    expect(sample).not.toHaveBeenCalled();
+    jasmine.clock().tick(1);
+    expect(sample).toHaveBeenCalled();
+  });
+});
+
+//////////setInterval
+
+describe("a simple setInterval", function(){
+  var dummyFunction;
+
+  beforeEach(function() {
+    dummyFunction = jasmine.createSpy("dummyFunction");
+    jasmine.clock().install();
+  });
+
+  afterEach(function() {
+    jasmine.clock().uninstall();
+  });
+
+  it("checks to see the number of times the function is invoked", function(){
+    setInterval(function() {
+      dummyFunction();
+    }, 1000);
+    jasmine.clock().tick(999);
+    expect(dummyFunction.calls.count()).toBe(0);
+    jasmine.clock().tick(1000);
+    expect(dummyFunction.calls.count()).toBe(1);
+    jasmine.clock().tick(1);
+    expect(dummyFunction.calls.count()).toBe(2);
+  });
+});
+
+
+////////////////////////ASYNC
+function getUserInfo(username){
+  return $.getJSON('https://api.github.com/users/' + username);
+}
+
+describe("#getUserInfo", function(){
+  it("returns the correct name for the user", function(done){
+    getUserInfo('elie').then(function(data){
+      expect(data.name).toBe('Elie Schoppik');
+      done();
+    });
+  });
+});
+
+  </script>
+</body>
+</html>
