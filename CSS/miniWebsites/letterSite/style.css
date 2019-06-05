@@ -1,45 +1,114 @@
 body {
+  overflow-x: hidden;
   font-family: Alegreya, serif;
-  background: linear-gradient(to left, #ffe1d1, #ffdbca);
 }
-/* CSS best practices
- Box (position, display, width, margin, etc.)
- Text
- Background
- Border
- Other (Alphabetically)
- */
-
 .header {
-  /* //setting up first grid. */
-  display: grid;
-  grid-template-columns: 20% 1fr;
-  align-content: center;
   font-weight: bold;
   font-size: 20px;
+  display: grid;
+  grid-template-columns: 20% 1fr;
 }
-
 .header-logo {
   align-self: center;
-  justify-self: center;
+  margin-left: 2rem;
 }
-
 .header-letter {
   font-size: 30px;
   color: #6a4a39;
 }
-
 .menu {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  font-size: 20px;
+  color: #000;
   opacity: 0.7;
   list-style: none;
+  display: flex;
+  justify-content: flex-end;
 }
 .menu-item {
-  margin: 0 47px;
+  margin: 47px 45px;
+  position: relative;
 }
 .menu-item:last-of-type {
   color: #ff7676;
   border-bottom: 4px solid #f8d1be;
+}
+.container {
+  background: linear-gradient(to left, #ffe1d1, #ffdbca);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.hero_container {
+  position: relative;
+  min-height: 550px;
+  display: grid;
+  grid-template-areas: "lamp title sun sun" "lamp title sun sun";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, minmax(0px, auto));
+  border-bottom: 1px solid #ff8989;
+}
+.hero_cta {
+  grid-area: title;
+  justify-self: end;
+  align-self: center;
+}
+.lamp {
+  grid-area: lamp;
+  height: auto;
+  justify-self: start;
+  align-self: end;
+  position: absolute;
+  bottom: -350px;
+}
+.cta_title {
+  font-size: 60px;
+  line-height: 69px;
+  font-weight: bold;
+}
+.cta_description {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 2rem;
+}
+.cta_btn {
+  width: 200px;
+  height: 44px;
+  position: absolute;
+  bottom: -23px;
+  cursor: pointer;
+  background: #333;
+  box-shadow: rgba(255, 163, 148, 0.1) 0px 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-family: Alegreya;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+.hide {
+  visibility: hidden;
+}
+#waves {
+  justify-self: end;
+  max-width: 1500px;
+  width: 100%;
+  grid-column: 0.2;
+  align-self: end;
+  grid-row: 1;
+}
+.container_sun {
+  grid-area: sun;
+  align-self: end;
+  justify-self: start;
+}
+.container_sun img {
+  max-width: 400px;
+  min-width: 200px;
+  width: 100%;
+}
+#planes {
+  width: 100%;
+  grid-area: sun;
+  justify-self: end;
+  align-self: end;
 }
