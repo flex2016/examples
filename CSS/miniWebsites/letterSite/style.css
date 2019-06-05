@@ -143,9 +143,15 @@ body {
 }
 #planes {
   width: 100%;
+  transform-style: preserve-3d;
   grid-area: sun;
   justify-self: end;
   align-self: end;
+}
+@media (max-width: 768px) {
+  #planes {
+    display: none;
+  }
 }
 
 /* //second section */
@@ -205,6 +211,23 @@ body {
   align-self: center;
   justify-self: end;
 }
+.fly_right {
+  opacity: 0;
+  transform-origin: center center 0px;
+  transform: translate(-500px, 300px);
+  animation: fly_right 3s ease-out 0.8s 1 forwards;
+}
+
+@keyframes fly_right {
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(800px) translateZ(-3em) translateX(-200px) scale(2);
+    opacity: 1;
+  }
+}
+
 .path {
   visibility: hidden;
 }
