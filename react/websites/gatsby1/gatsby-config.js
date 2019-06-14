@@ -1,11 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `First Gatsby`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: "Design+Code 3",
+    description:
+      "Complete courses about the best tools and design systems. Prototype and build apps with React and Swift. 60 hours of video content and resource materials. No coding experience required.",
+    keywords:
+      "react course, react for designers, ios development, sketch app, swift app course, arkit 2, after effects, create sketch plugin",
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "5uj75wa6q6la",
+        accessToken: "1WKHA0hrOBbv1k-Ju4atVcaQTV7za-5mJDq2SvSv4Y4",
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
